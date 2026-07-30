@@ -3,259 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLASS - Tienda de Plantas</title>
-    <!-- Importando fuente redondeada similar a la de la imagen -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <title>GLASS - Top Selling Plants</title>
+    <!-- Importamos la fuente Poppins para lograr el estilo redondeado y moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Importamos FontAwesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-dark: #0a2115;
-            --bg-light: #113221;
-            --card-bg: #143825;
-            --text-main: #ffffff;
-            --text-muted: #8ba596;
-            --accent-green: #52c41a;
-            --accent-hover: #65d82e;
-        }
-
+        /* --- Estilos Generales y Reset --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            color: var(--text-main);
-            min-height: 100vh;
+            background-color: #051c17; /* Fondo verde oscuro profundo */
+            color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* --- NAVEGACIÓN --- */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* --- Header / Navegación --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 30px 0;
+            font-size: 14px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 24px;
             letter-spacing: 2px;
         }
 
         nav ul {
             display: flex;
-            list-style: none;
-            gap: 2.5rem;
+            gap: 25px;
         }
 
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.3s;
+        nav ul li {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
-        nav a:hover {
-            color: var(--text-main);
+        nav ul li span {
+            color: rgba(255, 255, 255, 0.3);
         }
 
-        .btn-nav {
-            background-color: var(--accent-green);
-            color: #000;
-            border: none;
-            padding: 0.6rem 1.5rem;
+        .header-btn {
+            background: linear-gradient(90deg, #2aa772, #1c8c58);
+            padding: 10px 25px;
             border-radius: 20px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s;
         }
 
-        .btn-nav:hover {
-            background-color: var(--accent-hover);
+        .header-btn:hover {
             transform: scale(1.05);
         }
 
-        /* --- SECCIÓN HERO --- */
+        /* --- Sección Hero (Top Selling Plants) --- */
         .hero {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            padding-top: 40px;
+            padding-bottom: 100px;
             align-items: center;
-            justify-content: space-between;
-            padding: 4rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            min-height: 70vh;
+            position: relative;
         }
 
-        .hero-text {
-            flex: 1;
-            padding-right: 2rem;
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 2;
         }
 
-        .hero-text h1 {
+        .hero-title {
             font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            font-weight: 500;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
         }
 
-        .hero-text p {
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 400px;
-            line-height: 1.6;
-            font-size: 1.1rem;
+        .hero-title span {
+            font-weight: 300;
         }
 
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 350px;
+            line-height: 1.5;
+            margin-bottom: 30px;
         }
 
-        .btn-primary {
-            background-color: var(--accent-green);
-            color: #000;
-            border: none;
-            padding: 1rem 2.5rem;
+        .hero-btn {
+            background: linear-gradient(90deg, #2aa772, #1c8c58);
+            padding: 12px 30px;
             border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(42, 167, 114, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(42, 167, 114, 0.4);
+        }
+
+        .hero-btn i {
+            font-size: 12px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-plant {
+            width: 100%;
+            max-width: 600px;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+        }
+
+        /* Elementos flotantes en Hero */
+        .rating-box {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
         }
 
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(82, 196, 26, 0.2);
+        .stars i {
+            color: #fff;
+            font-size: 12px;
         }
 
-        .hero-image {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Contenedor simulado para la planta principal */
-        .main-plant-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 600px;
-            background: radial-gradient(circle, var(--card-bg) 0%, transparent 70%);
+        .twitter-icon {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 10px;
             border-radius: 50%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* --- Sección Productos (Indoor Plants) --- */
+        .products-section {
+            padding: 80px 0;
             position: relative;
         }
 
-        .main-plant-placeholder::after {
-            content: "Maceta & Planta Principal \A (Sustituir por imagen 3D)";
-            white-space: pre-wrap;
+        .section-header {
             text-align: center;
-            position: absolute;
-            top: 50%;
-            color: var(--text-muted);
-            font-weight: 600;
+            margin-bottom: 60px;
         }
 
-        /* --- SECCIÓN PRODUCTOS --- */
-        .products-section {
-            padding: 5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .products-section h2 {
+        .section-header h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-weight: 400;
+            margin-bottom: 10px;
         }
 
-        .products-section > p {
-            color: var(--text-muted);
+        .section-header p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
             max-width: 600px;
-            margin: 0 auto 4rem auto;
-            font-size: 0.95rem;
+            margin: 0 auto;
             line-height: 1.6;
         }
 
-        .grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            text-align: left;
-            position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-img-placeholder {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
+        .product-card {
+            background: radial-gradient(ellipse at 50% 0%, #1c5a4c 0%, transparent 50%), #0e2f28;
+            border-radius: 30px;
+            padding: 30px 20px 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            min-height: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .product-card img {
+            width: 80%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
         }
 
         .card-info {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            padding: 0 10px;
         }
 
-        .card-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-muted);
+        .card-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-name {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
         }
 
         .card-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
+            font-size: 16px;
+            font-weight: 600;
+            color: #ceebdf;
         }
 
-        .add-btn {
-            background: transparent;
-            border: 1px solid var(--text-muted);
-            color: var(--text-muted);
+        .add-cart-btn {
+            background: rgba(255, 255, 255, 0.1);
             width: 35px;
             height: 35px;
             border-radius: 50%;
@@ -263,199 +281,316 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background 0.2s, transform 0.2s;
         }
 
-        .add-btn:hover {
-            background: var(--accent-green);
-            color: #000;
-            border-color: var(--accent-green);
+        .add-cart-btn:hover {
+            background: #2aa772;
+            transform: scale(1.1);
+        }
+        
+        .add-cart-btn i {
+            font-size: 14px;
+            color: #fff;
         }
 
-        /* Estilo especial para la tarjeta 5 (Evadtegis en la imagen original) */
-        .card.featured {
-            position: relative;
+        /* Card especial de texto "Exoticegis" */
+        .text-card {
+            justify-content: center;
+            align-items: flex-start;
+            background: transparent;
+            padding-left: 40px;
+            border: none;
+            min-height: auto;
         }
-        .card.featured .featured-text {
-            position: absolute;
-            top: 2rem;
-            left: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            z-index: 2;
+        
+        .text-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .text-card h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .text-card p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 200px;
+            line-height: 1.5;
         }
 
+        /* Icono central inferior */
+        .footer-icon {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 18px;
+            background: #0e2f28;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Responsividad (Fluidez) --- */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-bottom: 60px;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-image-wrapper {
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .hero-plant {
+                max-width: 70%;
+            }
+            .rating-box {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li span {
+                display: none;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .text-card {
+                padding-left: 20px;
+                text-align: center;
+                align-items: center;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Toast Notification para JavaScript */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #2aa772;
+            color: #fff;
+            text-align: center;
+            border-radius: 30px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 17px;
+            box-shadow: 0 5px 15px rgba(42, 167, 114, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 40px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- CABECERA -->
-    <header>
-        <div class="logo">GLASS</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Houseplants</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="btn-nav">Account</button>
-    </header>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">GLASS</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a> <span>•</span></li>
+                    <li><a href="#">Blogs</a> <span>•</span></li>
+                    <li><a href="#">Plants</a> <span>•</span></li>
+                    <li><a href="#">Shop</a> <span>•</span></li>
+                    <li><a href="#">About</a> <span>•</span></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-btn">Login Now</div>
+        </header>
 
-    <!-- SECCIÓN HERO PRINCIPAL -->
-    <main>
+        <!-- HERO SECTION -->
         <section class="hero">
-            <div class="hero-text">
-                <h1>Top Selling<br>Plants</h1>
-                <p>Curating perfect foliage spaces with our extraordinary setup details and premium indoor plants.</p>
-                <div class="hero-actions">
-                    <button class="btn-primary" onclick="alert('¡Redirigiendo a la tienda!')">
-                        <span>&#8592;</span> Descubrir <span>&#8594;</span>
-                    </button>
+            <div class="hero-content">
+                <h1 class="hero-title">Top Selling<br><span>Plants.</span></h1>
+                <p class="hero-subtitle">Cultivating a greener world, one plant at a time. Discover our vibrant collection of botanical wonders.</p>
+                <div class="hero-btn">
+                    Streamlining <i class="fas fa-arrow-right"></i>
                 </div>
-                <div style="color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; gap: 10px;">
-                    <span>Trustpilot</span>
-                    <span style="color: #52c41a;">★★★★★</span>
+                <div class="rating-box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span>4.5/5</span>
+                    <div class="twitter-icon"><i class="fab fa-twitter"></i></div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="main-plant-placeholder">
-                    <!-- Aquí debes insertar tu etiqueta <img src="ruta/a/tu/imagen.png"> -->
-                </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=600&fit=crop" alt="Top Selling Plant" class="hero-plant">
             </div>
         </section>
 
-        <!-- SECCIÓN DE PRODUCTOS (GRID) -->
+        <!-- PRODUCTS SECTION -->
         <section class="products-section">
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">Shop</p>
-            <h2>Indoor Plants</h2>
-            <p>Select from a diverse range of robust and stunning indoor greenery to elevate your home atmosphere. Discover perfection in every leaf.</p>
-            
-            <div class="grid">
-                <!-- Tarjeta 1 -->
-                <div class="card">
-                    <div class="card-img-placeholder">Imagen Planta 1</div>
+            <div class="section-header">
+                <h2>Indoor Plants</h2>
+                <p>From air-purifying varieties to stunning statement pieces, our indoor plants bring nature’s serenity and beauty into your home or workspace.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=400&fit=crop" alt="Parlor Palm">
                     <div class="card-info">
-                        <div>
-                            <div class="card-title">Monstera Deliciosa</div>
-                            <div class="card-price">$24.00</div>
+                        <div class="card-text">
+                            <span class="card-name">Parlor Palm</span>
+                            <span class="card-price">$10.00</span>
                         </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
+                        <div class="add-cart-btn" onclick="addToCart('Parlor Palm')">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta 2 -->
-                <div class="card">
-                    <div class="card-img-placeholder">Imagen Planta 2</div>
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1509423355101-1e4423bfd67e?w=400&h=400&fit=crop" alt="Snake Plant">
                     <div class="card-info">
-                        <div>
-                            <div class="card-title">Ficus Elastica</div>
-                            <div class="card-price">$32.00</div>
+                        <div class="card-text">
+                            <span class="card-name">Snake Plant</span>
+                            <span class="card-price">$15.00</span>
                         </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
+                        <div class="add-cart-btn" onclick="addToCart('Snake Plant')">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta 3 -->
-                <div class="card">
-                    <div class="card-img-placeholder">Imagen Planta 3</div>
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1596478775019-1c7b723a9404?w=400&h=400&fit=crop" alt="Fiddle Leaf Fig">
                     <div class="card-info">
-                        <div>
-                            <div class="card-title">Zamioculcas</div>
-                            <div class="card-price">$18.50</div>
+                        <div class="card-text">
+                            <span class="card-name">Fiddle Leaf Fig</span>
+                            <span class="card-price">$25.00</span>
                         </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
+                        <div class="add-cart-btn" onclick="addToCart('Fiddle Leaf Fig')">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta 4 -->
-                <div class="card">
-                    <div class="card-img-placeholder">Imagen Planta 4</div>
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop" alt="Monstera">
                     <div class="card-info">
-                        <div>
-                            <div class="card-title">Pilea Peperomioides</div>
-                            <div class="card-price">$15.00</div>
+                        <div class="card-text">
+                            <span class="card-name">Monstera</span>
+                            <span class="card-price">$18.00</span>
                         </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
+                        <div class="add-cart-btn" onclick="addToCart('Monstera')">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta 5 (Especial "Evadtegis") -->
-                <div class="card featured">
-                    <div class="featured-text">Evadtegis</div>
-                    <div class="card-img-placeholder" style="height: 200px; margin-top: 50px;">Imagen Planta 5</div>
-                    <div class="card-info">
-                        <div>
-                            <div class="card-title">Calathea Ornata</div>
-                            <div class="card-price">$28.00</div>
-                        </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
-                    </div>
+                <!-- Card de Texto "Exoticegis" -->
+                <div class="product-card text-card">
+                    <h3>Exoticegis</h3>
+                    <p>Discover the exotic elegance of tropical foliage, designed to bring a touch of the jungle into your living space.</p>
                 </div>
 
-                <!-- Tarjeta 6 -->
-                <div class="card">
-                    <div class="card-img-placeholder">Imagen Planta 6</div>
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1595219085606-d2503f6e5dd3?w=400&h=400&fit=crop" alt="Peace Lily">
                     <div class="card-info">
-                        <div>
-                            <div class="card-title">Sansevieria</div>
-                            <div class="card-price">$21.00</div>
+                        <div class="card-text">
+                            <span class="card-name">Peace Lily</span>
+                            <span class="card-price">$22.00</span>
                         </div>
-                        <button class="add-btn" aria-label="Añadir">&#43;</button>
+                        <div class="add-cart-btn" onclick="addToCart('Peace Lily')">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="footer-icon">
+                <i class="fas fa-circle"></i>
+            </div>
         </section>
-    </main>
+    </div>
 
-    <!-- SCRIPT PARA FLUIDEZ Y ANIMACIONES -->
+    <!-- Toast para las notificaciones de compra -->
+    <div id="toast">Carrito actualizado correctamente</div>
+
+    <!-- JavaScript para la funcionalidad -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animación de aparición al hacer scroll (Intersection Observer)
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+        // Función para simular añadir al carrito
+        function addToCart(productName) {
+            // Mostrar notificación
+            const toast = document.getElementById('toast');
+            toast.textContent = `¡"${productName}" añadido al carrito!`;
+            toast.className = 'show';
+            
+            // Ocultar la notificación después de 3 segundos
+            setTimeout(() => { 
+                toast.className = toast.className.replace('show', ''); 
+            }, 3000);
+            
+            // También registramos la acción en la consola para funcionalidad real
+            console.log(`Producto añadido: ${productName}`);
+        }
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Dejar de observar una vez animado
-                    }
-                });
-            }, observerOptions);
-
-            // Seleccionar todas las tarjetas y aplicar el observador
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                // Añadir un ligero retraso en cascada para que aparezcan una por una
-                card.style.transitionDelay = `${index * 0.1}s`;
-                observer.observe(card);
-            });
-
-            // Funcionalidad de los botones de añadir al carrito
-            const addButtons = document.querySelectorAll('.add-btn');
-            addButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Evitar que haga clic en la tarjeta entera
-                    const plantName = this.parentElement.querySelector('.card-title').innerText;
-                    
-                    // Efecto visual al añadir
-                    this.style.backgroundColor = '#52c41a';
-                    this.style.color = '#000';
-                    this.innerHTML = '&#10003;'; // Cambiar icono a check
-                    
-                    setTimeout(() => {
-                        this.style.backgroundColor = 'transparent';
-                        this.style.color = 'var(--text-muted)';
-                        this.innerHTML = '&#43;'; // Volver a cruz
-                    }, 2000);
-                });
-            });
+        // Añadir efecto parallax sutil a la imagen del hero (Opcional, para darle fluidez)
+        document.addEventListener('mousemove', function(e) {
+            const heroImg = document.querySelector('.hero-plant');
+            if (window.innerWidth > 768) {
+                const x = (window.innerWidth - e.pageX * 2) / 100;
+                const y = (window.innerHeight - e.pageY * 2) / 100;
+                heroImg.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            }
         });
     </script>
 </body>
